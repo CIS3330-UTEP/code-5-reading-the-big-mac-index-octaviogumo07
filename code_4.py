@@ -51,7 +51,7 @@ def get_the_most_expensive_big_mac_price_by_year(year):
     
     # Check if the filtered DataFrame is empty
     if filtered_df.empty:
-        return None
+        return None #if empty return 'None'
     
     # Find the row with the maximum 'dollar_price' using .idmax()
     most_expensive = filtered_df.loc[filtered_df['dollar_price'].idxmax()] #generated with the help of AI 
