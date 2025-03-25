@@ -67,3 +67,17 @@ if __name__ == "__main__":
     print(f"Mean Big Mac price for {country_code}: ${get_big_mac_price_by_country(country_code)}")
     print(f"Cheapest Big Mac in {year}: {get_the_cheapest_big_mac_price_by_year(year)}")
     print(f"Most expensive Big Mac in {year}: {get_the_most_expensive_big_mac_price_by_year(year)}")
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+#installing Matplotlib
+filename = "./big-mac-full-index.csv"
+df = pd.read_csv(filename)
+
+#filter for data in Argentina
+smol_df = df.query("iso_a3 == 'ARG'")
+
+#create the scatter plot
+smol_df.plot.scatter(x="date", y="dollar_price")
+plt.show()
